@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  connection: local
+  name: deploy tomcat
+  tasks:
+    - name: Create & Start Container
+      docker_container:
+        name: myweb
+        image: "jyc00000/tomcat:latest"
+        state: started
+        ports:
+          - "80:8080"
+
+...
